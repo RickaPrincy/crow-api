@@ -22,5 +22,10 @@ int main(){
         return "Hello world from post";
     });
 
+    CROW_ROUTE(app, "/").methods(crow::HTTPMethod::POST)([](const crow::request &res){ 
+        std::cout << res.body << std::endl;
+        return "Hello world from post";
+    });
+
     app.port(8080).multithreaded().run(); 
 }
